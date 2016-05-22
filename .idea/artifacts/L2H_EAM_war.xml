@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="L2H_EAM:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="L2H_EAM.war">
+      <element id="artifact" artifact-name="L2H_EAM:war exploded" />
+    </root>
+  </artifact>
+</component>
