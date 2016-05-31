@@ -17,11 +17,7 @@
         
     </resultMap>
     <!---->
-    <resultMap id="usersResultMap" type="User">
-        <collection property="users" ofType="User" javaType="java.util.List"/>
 
-
-    </resultMap>
     <!--根据7-->
     <insert id="insertUser" parameterType="User" statementType="PREPARED" >
 
@@ -59,16 +55,20 @@
         PASSWORD,
         ACCOUNT,
         POST_CODE
-        FROM  t_sys_user WHERE  USER_ID = #{USER_ID}
+        FROM  t_sys_user WHERE  USER_ID = #{id}
     </select>
 
-    <select id="getUsersByPost" resultMap="usersResultMap" parameterType="String">
+    <select id="getUsersByPost" resultMap="BaseResultMap" parameterType="java.lang.String">
 
         SELECT *
         FROM t_sys_user
-        <where>
-           <if test="post_code!=null and post_code!='' " >post_code=#{post_code}</if>
-        </where>
+        WHERE post_code=#{post_code}
 
+
+    </select>
+    <select id="getUsersByDpet"resultMap="BaseResultMap" parameterType="java.lang.String">
+     SELECT c.POST_NAME,d.ACCOUNT,d.PASSWORD,d.USER_ID,d.USER_NAME
+     FROM t_sys_dpet a ,t_sys_dpet_post b,t_sys_post c,t_sys_user d
+     WHERE  a.DPET_CODE=#{dept_code} AND a.DPET_CODE=b.DPET_CODE and b.POST_CODE = c.POST_CODE and c.POST_CODE=d.POST_CODE AND
     </select>
 </mapper>
