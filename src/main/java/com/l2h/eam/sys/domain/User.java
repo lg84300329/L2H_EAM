@@ -32,8 +32,7 @@ public class User {
     private String user_name;//用户名
     private String password; //用户密码
     private String account ;//登录账号
-    private String post_code;//岗位代码
-
+    private String post_code;//用户岗位代码
 
     public int getUser_id() {
         return user_id;
@@ -65,7 +64,6 @@ public class User {
     public void setAccount(String account) {
         this.account = account;
     }
-
     public String getPost_code() {
         return post_code;
     }
@@ -73,4 +71,5 @@ public class User {
     public void setPost_code(String post_code) {
         this.post_code = post_code;
     }
+
 }
