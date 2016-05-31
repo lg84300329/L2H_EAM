@@ -4,6 +4,7 @@ import com.l2h.eam.sys.domain.User;
 import org.apache.ibatis.annotations.Flush;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -39,7 +40,7 @@ public interface UserMapper {
      * @param id 用户ID
      * @return
      */
-    User selectUserByID(int id );
+    User selectUserById(int id );
 
     /**
      * 函数说明：根据用户登录账号查找用户
@@ -72,5 +73,12 @@ public interface UserMapper {
      * 函数说明：根据岗位ID加载用户
      */
     List<User> getUsersByPost(String post_code);
+
+    /**
+     * 函数说明：加载部门下所有用户
+     * @param dept_code
+     * @return
+     */
+    List<Map> getUsersByDpet(String dept_code);
 
 }
