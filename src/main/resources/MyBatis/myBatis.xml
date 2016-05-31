@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+
+        <setting name="logImpl" value="LOG4J"/>
+
+    </settings>
+<!--mybatis的spring整合包已经配置这里不需要重复配置-->
+    <typeAliases>
+        <typeAlias type="com.l2h.eam.sys.domain.User" alias="User" />
+        <typeAlias type="com.l2h.eam.utils.domain.TreeNode" alias="TreeNode"/>
+        <typeAlias type="java.util.List" alias="List"/>
+        <typeAlias type="java.lang.String" alias="String"/>
+    </typeAliases>
+
+</configuration>

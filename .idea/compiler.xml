@@ -26,5 +26,8 @@
         <module name="L2H_EAM" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="L2H_EAM" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
