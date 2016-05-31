@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -69,10 +70,28 @@ public class UserService {
     {
        return userMapper.selectUserByAccount(account);
     }
+    public  User selectUserByID(int id )
+    {
+        return userMapper.selectUserById(id);
+    }
+
+    /**
+     * 函数说明：查找post_code 岗位代码下所有用户
+     * @param post_code 岗位代码
+     * @return
+     */
     public List<User> getUsersByPost(String post_code)
     {
         return  userMapper.getUsersByPost(post_code);
     }
 
-
+    /**
+     *函数说明：查找dept_code部门下的所有用户
+     * @param dept_code
+     * @return
+     */
+    public  List<Map> getUsersByDpet(String dept_code)
+    {
+        return  userMapper.getUsersByDpet(dept_code);
+    }
 }
