@@ -25,7 +25,7 @@ package com.l2h.eam.sys.domain;
  * 创建时间 ：2016-05-29
  * 功能说明 ：部门实体类
  */
-public class Deparment {
+public class Department {
     private  int     dept_id;//部门ID
     private  String  dept_code;//部门编码
     private  String  dept_name;//部门名称
