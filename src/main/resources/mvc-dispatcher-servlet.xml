@@ -51,7 +51,7 @@
         <property name="dataSource" ref="dataSource" />
        <property name="configLocation" value="classpath:MyBatis/myBatis.xml"/>
         <!-- 所有配置的mapper文件 -->
-        <property name="mapperLocations" value="classpath*:MyBatis/sys_mapper/*.xml" />
+        <property name="mapperLocations" value="classpath*:MyBatis/*/*.xml" />
     </bean>
     <context:component-scan base-package="com.l2h.eam.sys.service"/>
     <!--自动扫描mapper-->
