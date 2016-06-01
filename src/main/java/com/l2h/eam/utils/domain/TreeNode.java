@@ -1,5 +1,7 @@
 package com.l2h.eam.utils.domain;
 
+import java.util.*;
+
 /**
  * ━━━━━━神兽出没━━━━━━
  * 　　　┏┓　　　┏┓
@@ -26,24 +28,56 @@ package com.l2h.eam.utils.domain;
  * 功能说明 ：普通树节点
  */
 public class TreeNode {
-    private  int     node_id;//节点ID
-    private int     parent_node_id;//父节点ID
-    private  String  node_name;//节点名称
+    private Integer node_id;//树节点id
+    private Integer parentID;//树节点父id
+    private String node_name;//树节点名称
+    private List<TreeNode> childrens = new ArrayList<TreeNode>();
 
-    public int getNode_id() {
+    /**
+     * 函数说明：添加子节点
+     * @param child
+     */
+
+    public void addChild(TreeNode child){
+        childrens.add(child);
+    }
+
+
+    public void  sortChildren()
+    {
+        Collections.sort(childrens, new Comparator<TreeNode>() {
+            @Override
+            public int compare(TreeNode o1, TreeNode o2) {//id大的在后面
+                if (o1.node_id > o2.node_id) {
+                    return -1;
+                } else if (o1.node_id < o2.node_id) {
+                    return 1;
+                }
+                return 0;
+            }
+        });
+        for (Iterator<TreeNode> iterator= childrens.iterator();iterator.hasNext();)
+        {
+            iterator.next().sortChildren();
+        }
+
+    }
+
+
+    public Integer getNode_id() {
         return node_id;
     }
 
-    public void setNode_id(int node_id) {
+    public void setNode_id(Integer node_id) {
         this.node_id = node_id;
     }
 
-    public int getParent_node_id() {
-        return parent_node_id;
+    public Integer getParentID() {
+        return parentID;
     }
 
-    public void setParent_node_id(int parent_node_id) {
-        this.parent_node_id = parent_node_id;
+    public void setParentID(Integer parentID) {
+        this.parentID = parentID;
     }
 
     public String getNode_name() {
@@ -52,5 +86,13 @@ public class TreeNode {
 
     public void setNode_name(String node_name) {
         this.node_name = node_name;
+    }
+
+    public List<TreeNode> getChildrens() {
+        return childrens;
+    }
+
+    public void setChildrens(List<TreeNode> childrens) {
+        this.childrens = childrens;
     }
 }
