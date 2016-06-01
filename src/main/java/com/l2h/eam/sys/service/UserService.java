@@ -3,6 +3,7 @@ package com.l2h.eam.sys.service;
 
 import com.l2h.eam.sys.mapper.UserMapper;
 import com.l2h.eam.sys.domain.User;
+import com.l2h.eam.utils.domain.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -94,4 +95,7 @@ public class UserService {
     {
         return  userMapper.getUsersByDpet(dept_code);
     }
+
+
+
 }
