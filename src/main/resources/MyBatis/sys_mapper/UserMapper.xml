@@ -66,9 +66,17 @@
 
 
     </select>
-    <select id="getUsersByDpet"resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="getUsersByDpet" resultMap="BaseResultMap" parameterType="java.lang.String">
      SELECT c.POST_NAME,d.ACCOUNT,d.PASSWORD,d.USER_ID,d.USER_NAME
      FROM t_sys_dpet a ,t_sys_dpet_post b,t_sys_post c,t_sys_user d
-     WHERE  a.DPET_CODE=#{dept_code} AND a.DPET_CODE=b.DPET_CODE and b.POST_CODE = c.POST_CODE and c.POST_CODE=d.POST_CODE AND
+     WHERE  a.DPET_CODE=#{dept_code} AND a.DPET_CODE=b.DPET_CODE and b.POST_CODE = c.POST_CODE and c.POST_CODE=d.POST_CODE
     </select>
+
+    <resultMap id="dpetMap" type="TreeNode">
+        <id property="node_id" column="DPET_ID"/>
+        <result property="parentID" column="PARENT_DPET_ID"/>
+        <result property="node_name" column="DPET_NAME"/>
+    </resultMap>
+
+
 </mapper>
