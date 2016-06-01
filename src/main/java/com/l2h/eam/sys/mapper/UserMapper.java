@@ -1,6 +1,7 @@
 package com.l2h.eam.sys.mapper;
 
 import com.l2h.eam.sys.domain.User;
+import com.l2h.eam.utils.domain.TreeNode;
 import org.apache.ibatis.annotations.Flush;
 
 import java.util.List;
@@ -80,5 +81,6 @@ public interface UserMapper {
      * @return
      */
     List<Map> getUsersByDpet(String dept_code);
+
 
 }
