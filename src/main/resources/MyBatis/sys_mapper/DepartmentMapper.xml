@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.l2h.eam.sys.mapper.DepartmentMapper">
+
+    <resultMap id="dpetMap" type="TreeNode">
+        <id property="node_id" column="DPET_ID"/>
+        <result property="parentID" column="PARENT_DPET_ID"/>
+        <result property="node_name" column="DPET_NAME"/>
+    </resultMap>
+    <select id="getDpets" resultMap="dpetMap" parameterType="String">
+
+        SELECT a.DPET_ID ,a.DPET_CODE,a.DPET_NAME,p.DPET_ID as PARENT_DPET_ID
+        FROM t_sys_dpet a,t_sys_dpet p
+        WHERE a.PARENT_DPET_CODE = p.DPET_CODE AND a.DPET_CODE LIKE #{dpet_code}"%"
+    </select>
+
+</mapper>
