@@ -9,7 +9,7 @@
         <result property="parentID" column="PARENT_DPET_ID"/>
         <result property="node_name" column="DPET_NAME"/>
     </resultMap>
-    <select id="getDpets" resultMap="dpetMap" parameterType="String">
+    <select id="getDpetsByLike" resultMap="dpetMap" parameterType="String">
 
         SELECT a.DPET_ID ,a.DPET_CODE,a.DPET_NAME,p.DPET_ID as PARENT_DPET_ID
         FROM t_sys_dpet a,t_sys_dpet p
