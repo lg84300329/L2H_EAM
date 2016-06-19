@@ -62,7 +62,7 @@ public class UserController {
     public  String getUserManagerPage(@ModelAttribute("userInfo") User user)
     {
          User user1 = user;
-        String name = user1.getUser_name();
+         String name = user1.getUser_name();
          return "sys/sys_usermanager";
 
     }
