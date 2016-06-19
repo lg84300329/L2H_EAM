@@ -36,7 +36,7 @@ import java.util.Map;
  * 创建时间 ：2016-05-29
  * 功能说明 ：User操作业务逻辑
  */
-@Service("userService")
+@Service
 @Transactional
 public class UserService {
 
