@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.l2h.eam.sys.mapper.DepartmentMapper">
 
-    <resultMap id="dpetMap" type="TreeNode">
+    <resultMap id="dpetMap" type="com.l2h.eam.utils.domain.TreeNode">
         <id property="node_id" column="DPET_ID"/>
         <result property="parentID" column="PARENT_DPET_ID"/>
         <result property="node_name" column="DPET_NAME"/>
