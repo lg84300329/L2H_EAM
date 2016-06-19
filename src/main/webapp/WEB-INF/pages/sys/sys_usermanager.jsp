@@ -1,0 +1,111 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2016-06-15
+  Time: 15:15
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../../css/ligerui-all.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+    </style>
+    <script src="../../js/jquery-1.5.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../../js/ligerui.min.js"></script>
+    <script type="text/javascript">
+        var navTab = null;//tab选项卡
+        var dpet_post_tree = null;//部门岗位树
+
+
+        var equipment_bug_grid= null;//缺陷记录
+        var runningmain="runningmain";
+
+
+
+        $(function () {
+
+            $("#layout1").ligerLayout({leftWidth: 300});
+            var width = $(".l-layout-center").width();
+            var height = $(".l-layout-center").height();
+            var grid_height = height - 75;
+
+            $(".l-tab-content-item").height = height;
+            navTab = $("#navTab").ligerTab({
+                height: height,
+                width: width,
+                changeHeightOnResize: true,
+                contextmenu: false
+
+
+            });
+            //面板
+            $("#accordion_class").ligerAccordion({
+                height: height - 24, speed: 'normal'
+            });
+            //加载部门
+            dpet_post_tree = $("#dpet_post_tree").ligerTree({
+                data: loadDpet(),
+                checkbox: false,
+                slide: false,
+                nodeWidth: 150,
+                attribute: ['text'],
+                onSelect: function (node) {
+                    //判断选项卡哪个处于激活状态，并ajax加载相应的数据
+                    alert("设备选择事件API:当前选择" + node.data.text);
+                }
+            });
+        });
+        //加载部门
+        function loadDpet()
+        {
+            var data;
+            $.ajax({ url: "sys/getDepts",data:{dpet_code:"36"},success: function(data){
+                alert(data);
+
+            }});
+            return data;
+        }
+
+    </script>
+    <style type="text/css">
+
+        body{ padding:5px; margin:0; padding-bottom:15px;}
+        #layout1{  width:100%;margin:0; padding:0;  }
+        .l-page-top{ height:80px; background:#f8f8f8; margin-bottom:3px;}
+        h4{ margin:20px;}
+    </style>
+</head>
+<body style="padding:10px">
+<div id="layout1">
+    <!--左边布局-->
+    <div position="left"  id="accordion_class">
+        <div title="部门岗位" class="l-scroll">
+
+            <ul id="dpet_post_tree" style="margin-top:3px;" ></ul>
+        </div>
+
+
+
+    </div>
+
+    <!--中间布局-->
+    <div position="center" id="user_list" title="用户列表">
+        <!--状态选择-->
+
+
+        <div title="检修记录"   tabid="equipment_bug_record" style="height:100%;margin-top: 45px"class="l-tab-content-item">
+            <div id="users_grid" style="margin: 0; padding: 0"></div>
+        </div>
+
+
+
+
+    </div>
+</div>
+</body>
+</html>
