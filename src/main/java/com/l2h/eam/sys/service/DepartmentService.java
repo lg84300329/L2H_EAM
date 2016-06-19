@@ -6,6 +6,7 @@ import com.l2h.eam.utils.common.TreeGenerator;
 import com.l2h.eam.utils.domain.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -58,7 +59,9 @@ public class DepartmentService {
      * @param dpet_code
      * @return
      */
-    public String getDpetsTreeJson(String dpet_code)
+    @RequestMapping(name = "getDepts",method = RequestMethod.POST,value = "sys/getDepts")
+    @ResponseBody
+    public String getDpetsTreeJson( @RequestParam("dpet_code") String dpet_code)
     {
         List<TreeNode> list = getDpetsByLike(dpet_code);
         if (list.size()>0)
